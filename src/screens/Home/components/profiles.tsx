@@ -1,10 +1,14 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 import { DataType,ResultType } from "../types/profile";
 import { ProfileItem } from "./renderItem";
+import { EndList } from "../../../components/end_list";
+import { EmptyComponent } from "./empty_component";
 
 type Props = {
     data:DataType
+    nextPage: () => void
+    loading: boolean
 }
 
 export const ProfileComponent: React.FC<Props> = (props)=> {
@@ -12,9 +16,12 @@ export const ProfileComponent: React.FC<Props> = (props)=> {
         <View  style={style.container} >
              <FlatList
                 data={props.data.results}
+                ListEmptyComponent={<EmptyComponent/>}
+                onEndReached={props.nextPage}
                 keyExtractor={(item:any)=> item.id}
                 renderItem={({item})=>(<ProfileItem item={item}/>)}
                 showsVerticalScrollIndicator={false}
+                ListFooterComponent={props.loading?<ActivityIndicator/>:<EndList/>}
             />
         </View>
     )
