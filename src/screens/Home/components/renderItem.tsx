@@ -20,7 +20,7 @@ export const ProfileItem: React.FC<Props> = (props)=> {
                 source = {{ uri: props.item.image }}
                 style={{
                     width : constants.WIDTH * 0.3,
-                    resizeMode: "cover",
+                    resizeMode: "contain",
                     borderBottomLeftRadius: 10,
                     borderTopLeftRadius: 10
                 }}
