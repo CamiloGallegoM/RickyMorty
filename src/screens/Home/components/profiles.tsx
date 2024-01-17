@@ -4,6 +4,7 @@ import { DataType,ResultType } from "../types/profile";
 import { ProfileItem } from "./renderItem";
 import { EndList } from "../../../components/end_list";
 import { EmptyComponent } from "./empty_component";
+import { LoadingScreen } from "../../../components/loading_component";
 
 type Props = {
     data:DataType
@@ -21,7 +22,7 @@ export const ProfileComponent: React.FC<Props> = (props)=> {
                 keyExtractor={(item:any)=> item.id}
                 renderItem={({item})=>(<ProfileItem item={item}/>)}
                 showsVerticalScrollIndicator={false}
-                ListFooterComponent={props.loading?<ActivityIndicator/>:<EndList/>}
+                ListFooterComponent={props.loading?<LoadingScreen  />:<EndList/>}
             />
         </View>
     )
@@ -30,7 +31,5 @@ const style = StyleSheet.create({
     container:{
         flex:1,
         padding:10,
-        borderWidth:1,
-        borderColor:'red'
     }
 })

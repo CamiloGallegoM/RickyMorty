@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 export const LoadingScreen: React.FC = ()=> {
     return (
         <View  style={style.container} >
-            <ActivityIndicator/>
+            <ActivityIndicator size="large" color="white"  />
         </View>
     )
 }
@@ -13,7 +13,6 @@ const style = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-        borderWidth:1,
-        borderColor:'red',
+        marginVertical:10
     }
 })

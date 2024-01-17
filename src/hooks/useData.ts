@@ -47,5 +47,6 @@ export function useProfileAllFetch (props:{search:string | undefined}){
     React.useEffect(()=>{
         getData()
     },[props.search])
+    
     return {data, loading, error, getNextPage}
 }
